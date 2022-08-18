@@ -28,9 +28,9 @@ public class WorkflowService {
 
     // Process execution and setBusinessKey
     @Transactional
-    public JSONObject startProcess(String ProcessKey, String BusinessKey){
+    public JSONObject startProcess(String ProcessKey, String BusinessKey, HashMap<String,Object> variables){
         ProcessInstanceBuilder processInstanceBuilder = runtimeService.createProcessInstanceBuilder();
-        processInstanceBuilder.businessKey(BusinessKey).processDefinitionKey(ProcessKey).start();
+        processInstanceBuilder.businessKey(BusinessKey).processDefinitionKey(ProcessKey).variables(variables).start();
         //runtimeService.startProcessInstanceByKey(ProcessKey);
         List<ProcessInstance> liste = runtimeService.createProcessInstanceQuery()
                 .processDefinitionKey(ProcessKey)

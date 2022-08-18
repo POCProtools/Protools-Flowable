@@ -22,9 +22,9 @@ public class ProcessController {
     @CrossOrigin
     @Operation(summary = "Start process by ProcessKey")
     @PostMapping(value= "/start-process/{processKey}/{businessKey}")
-    public String startProcessInstance(@PathVariable String processKey, @PathVariable String businessKey){
+    public String startProcessInstance(@PathVariable String processKey, @PathVariable String businessKey, @RequestBody HashMap<String,Object> variables){
         logger.info("> Start the process: "+ processKey);
-        JSONObject object = workflowService.startProcess(processKey,businessKey);
+        JSONObject object = workflowService.startProcess(processKey,businessKey,variables);
         logger.info(String.valueOf(object));
         return (String.valueOf(object));
     }
