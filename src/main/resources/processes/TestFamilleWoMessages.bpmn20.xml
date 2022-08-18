@@ -9,10 +9,10 @@
       <subProcess id="SubProcessAddToSurvey" name="SubProcess Add to Survey">
         <documentation>SubProcess Add to Survey</documentation>
         <startEvent id="Event_0t18ur8" name="StartSubprocess" flowable:formFieldValidation="true"></startEvent>
-        <serviceTask id="Activity_00rnxz8" name="créer l'ue dans l'annuaire"></serviceTask>
-        <serviceTask id="Activity_10dp9h6" name="créer l'ue dans la plateforme de collecte web"></serviceTask>
+        <serviceTask id="Activity_00rnxz8" name="créer l'ue dans l'annuaire" flowable:delegateExpression="${createAccount}"></serviceTask>
+        <serviceTask id="Activity_10dp9h6" name="créer l'ue dans la plateforme de collecte web" flowable:delegateExpression="${addToSurvey}"></serviceTask>
         <intermediateCatchEvent id="TimerCheckParralelism" name="Blocage Temps //">
-          <documentation>Permet de stoper le process pour voir si l'exec paralelle s'est bien déroulée</documentation>
+          <documentation>Permet de stopper le process pour voir si l'exec paralelle s'est bien déroulée</documentation>
           <timerEventDefinition>
             <timeDuration>PT120S</timeDuration>
           </timerEventDefinition>
@@ -37,7 +37,7 @@
           <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:initiator-can-complete>
         </extensionElements>
       </userTask>
-      <serviceTask id="RecupEch" name="Récupérer échantillon (source externe)" flowable:delegateExpression="getSampleFamille">
+      <serviceTask id="RecupEch" name="Récupérer échantillon (source externe)" flowable:delegateExpression="${getSampleFamille}">
         <documentation>Récupere un échantillon de taille 12</documentation>
       </serviceTask>
       <userTask id="EntreeContexte" name="Entrées Informations (contrôle)" flowable:assignee="user" flowable:category="DemandeInformation" flowable:formFieldValidation="true">
@@ -50,7 +50,7 @@
         <documentation>Erreur de contrôle</documentation>
         <errorEventDefinition flowable:errorVariableLocalScope="true" flowable:errorVariableTransient="true"></errorEventDefinition>
       </endEvent>
-      <serviceTask id="SendControlMessageError" name="Envoyer un message d'erreur" flowable:class="SendMessage">
+      <serviceTask id="SendControlMessageError" name="Envoyer un message d'erreur" flowable:class="SendMessage" flowable:delegateExpression="${errorControlMessage}">
         <documentation>Envoi message erreurs</documentation>
       </serviceTask>
       <sequenceFlow id="Flow_0d30qxe" sourceRef="EntreeContexte" targetRef="Gateway_06p0ycx"></sequenceFlow>
@@ -79,7 +79,7 @@
     <endEvent id="Event_1gknixt"></endEvent>
     <sequenceFlow id="Flow_1pcgl1o" sourceRef="Event_177uz9c" targetRef="ErrorGlobalProcess"></sequenceFlow>
     <sequenceFlow id="Flow_1vc8qv2" sourceRef="ErrorGlobalProcess" targetRef="Event_1gknixt"></sequenceFlow>
-    <serviceTask id="ErrorGlobalProcess" name="Envoyer un message d'erreur" flowable:delegateExpression="sendGlobalErrorMessage">
+    <serviceTask id="ErrorGlobalProcess" name="Envoyer un message d'erreur" flowable:delegateExpression="${sendGlobalErrorMessage}">
       <documentation>Erreur non controlée Process</documentation>
     </serviceTask>
     <association id="Association_0maiym1" sourceRef="TimerCheckParralelism" targetRef="TextAnnotation_0lbfpsq" associationDirection="None"></association>
