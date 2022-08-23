@@ -79,7 +79,7 @@
     <sequenceFlow id="sid-78852250-63B8-4149-AD77-204EEC9843F0" sourceRef="RecupEch" targetRef="ReceiveMessageStartProcess"></sequenceFlow>
     <intermediateCatchEvent id="ReceiveMessageStartProcess" name="Réception message">
       <documentation>Réception d'un message pour avancer dans le processus</documentation>
-      <messageEventDefinition id="messageToProceedPOCFamille" messageRef="process:messageToProceedPOCFamille"/>
+      <messageEventDefinition id="messageToProceedPOCFamille" messageRef="messageToProceedPOCFamille"/>
     </intermediateCatchEvent>
     <sequenceFlow id="sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" sourceRef="ReceiveMessageStartProcess" targetRef="SubProcessAddToSurvey"></sequenceFlow>
     <textAnnotation id="TextAnnotation_1da9efo">
