@@ -76,12 +76,12 @@
       <sequenceFlow id="sid-CFD54DB2-48A8-4426-B7C1-2751AC071241" sourceRef="StartEventError" targetRef="SendGlobalErrorProcess"></sequenceFlow>
       <sequenceFlow id="sid-BD78F59E-B311-41B6-A016-5E67A6752796" sourceRef="SendGlobalErrorProcess" targetRef="sid-8922F637-F7E2-45DF-9586-04917CB8293D"></sequenceFlow>
     </subProcess>
-    <sequenceFlow id="sid-78852250-63B8-4149-AD77-204EEC9843F0" sourceRef="RecupEch" targetRef="ReceiveMessageStart//Process"></sequenceFlow>
-    <intermediateCatchEvent id="ReceiveMessageStart//Process" name="Réception message">
+    <sequenceFlow id="sid-78852250-63B8-4149-AD77-204EEC9843F0" sourceRef="RecupEch" targetRef="ReceiveMessageStartProcess"></sequenceFlow>
+    <intermediateCatchEvent id="ReceiveMessageStartProcess" name="Réception message">
       <documentation>Réception d'un message pour avancer dans le processus</documentation>
       <messageEventDefinition id="messageToProceedPOCFamille" messageRef="process:messageToProceedPOCFamille"/>
     </intermediateCatchEvent>
-    <sequenceFlow id="sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" sourceRef="ReceiveMessageStart//Process" targetRef="SubProcessAddToSurvey"></sequenceFlow>
+    <sequenceFlow id="sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" sourceRef="ReceiveMessageStartProcess" targetRef="SubProcessAddToSurvey"></sequenceFlow>
     <textAnnotation id="TextAnnotation_1da9efo">
       <text>Pour chaque UE</text>
     </textAnnotation>
@@ -167,7 +167,7 @@
       <bpmndi:BPMNShape bpmnElement="TextAnnotation_16dgncd" id="BPMNShape_TextAnnotation_16dgncd">
         <omgdc:Bounds height="55.33063427800266" width="99.99156545209178" x="573.0" y="594.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="ReceiveMessageStart//Process" id="BPMNShape_ReceiveMessageStart//Process">
+      <bpmndi:BPMNShape bpmnElement="ReceiveMessageStartProcess" id="BPMNShape_ReceiveMessageStartProcess">
         <omgdc:Bounds height="30.0" width="30.0" x="735.0" y="429.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" id="BPMNEdge_sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="326.0" flowable:targetDockerY="175.0">
