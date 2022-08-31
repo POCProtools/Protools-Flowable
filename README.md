@@ -1,7 +1,7 @@
 # Protools POC - Flowable Engine 🦊
 [Demo Link 😉](https://protools.dev.insee.io/)
 
-This POC was build to test the Flowable Engine. It serves as a demonstration support as part of my final year internship.
+This POC was build to test the Flowable Engine. This branch is dedicated to various experiments and tests.
 
 Currently testing advanced features for l'Enquête Famille
 
@@ -18,8 +18,9 @@ docker run -d --name protoolsflowable -p 8080:8080  mailinenguyen/protools-flowa
 ```
 ### Manual Install
 ``` bash
-git clone git@github.com:Stage2022/Protools-Flowable.git
+git clone git@github.com:POCProtools/Protools-Flowable.git
 cd Protools-Flowable
+git checkout protools-wip
 ./mvnw spring-boot:run
 ```
 
