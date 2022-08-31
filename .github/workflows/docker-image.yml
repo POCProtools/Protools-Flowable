@@ -25,6 +25,6 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: ${{ secrets.DOCKER_USERNAME }}/protools-flowable-demo
+          name: ${{ secrets.DOCKER_USERNAME }}/protools-flowable
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
