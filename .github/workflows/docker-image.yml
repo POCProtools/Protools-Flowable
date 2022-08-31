@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ ]
+    branches: [protools-demo]
   workflow_dispatch:
 
 jobs:
@@ -25,6 +25,6 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: ${{ secrets.DOCKER_USERNAME }}/protools-flowable
+          name: ${{ secrets.DOCKER_USERNAME }}/protools-flowable-demo
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
