@@ -18,7 +18,7 @@ docker run -d --name protoolsflowable -p 8080:8080  mailinenguyen/protools-flowa
 ```
 ### Manual Install
 ``` bash
-git clone git@github.com:Stage2022/Protools-Flowable.git
+git clone git@github.com:POCProtools/Protools-Flowable.git
 cd Protools-Flowable
 git checkout demo-protools
 ./mvnw spring-boot:run
