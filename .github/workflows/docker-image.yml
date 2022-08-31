@@ -28,3 +28,4 @@ jobs:
           name: ${{ secrets.DOCKER_USERNAME }}/protools-flowable
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
+          tags: "protools-demo"
