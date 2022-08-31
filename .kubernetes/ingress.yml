@@ -7,9 +7,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - protools-flowable.dev.insee.io
+        - protools-flowable-demo
   rules:
-    - host: protools-flowable.dev.insee.io
+    - host: protools-flowable-demo
       http:
         paths:
           - path: /
