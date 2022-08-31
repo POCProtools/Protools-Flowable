@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: protools-flowable
-          image: mailinenguyen/protools-flowable
+          image: mailinenguyen/protools-flowable:wip
           env:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
