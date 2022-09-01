@@ -125,7 +125,7 @@
     <textAnnotation id="TextAnnotation_1xwhg0d">
       <text>contrôle</text>
     </textAnnotation>
-    <association id="Association_0lwcx7f" associationDirection="None"></association>
+
     <association id="Association_0i4m3xd" sourceRef="CreerContextPlateformeCollecte" targetRef="TextAnnotation_10w7x13" associationDirection="None"></association>
     <association id="Association_0z37dmh" sourceRef="TraitementIndivUE" targetRef="TextAnnotation_0ihqahz" associationDirection="None"></association>
     <association id="Association_15xszws" sourceRef="CloreCampagne" targetRef="TextAnnotation_1yaw8ir" associationDirection="None"></association>
