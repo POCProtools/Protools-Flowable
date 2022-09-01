@@ -87,6 +87,7 @@ public class WorkflowInfoService {
     public JSONArray getTasks(String assignee) {
         List<Task> response = taskService.createTaskQuery().taskAssignee(assignee).list();
         JSONArray jsonArray = new JSONArray();
+        logger.info("Ceci est un test pour voir s'il prend en compte la dernière version du code");
         for (int i =0; i<response.size(); i++) {
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("TaskId", response.get(i).getId());
