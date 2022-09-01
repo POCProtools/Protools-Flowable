@@ -14,10 +14,10 @@
       <parallelGateway id="Gateway_0c1hyn0"></parallelGateway>
       <endEvent id="Event_0q95sf6"></endEvent>
       <startEvent id="Event_1hgx73w" flowable:formFieldValidation="true"></startEvent>
-      <serviceTask id="CreateUEPlateformCollecte" name="créer l'ue dans la plateforme de collecte web" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-      <serviceTask id="SendFirstEmail" name="envoyer un mail avis à l'ue" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-      <serviceTask id="ResendEmail" name="envoyer un mail de relance à l'UE" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-      <serviceTask id="GetDataPlatformCollecte" name="extraction des données depuis la plateforme de collecte web" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
+      <serviceTask id="CreateUEPlateformCollecte" name="créer l'ue dans la plateforme de collecte web" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+      <serviceTask id="SendFirstEmail" name="envoyer un mail avis à l'ue" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+      <serviceTask id="ResendEmail" name="envoyer un mail de relance à l'UE" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+      <serviceTask id="GetDataPlatformCollecte" name="extraction des données depuis la plateforme de collecte web" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
       <intermediateCatchEvent id="TmpTimer" name="En attendant la vraie info">
         <timerEventDefinition>
           <timeDuration>PT5M</timeDuration>
@@ -79,16 +79,16 @@
     <sequenceFlow id="sid-C3CDD5F2-4E67-4933-9A46-1D5B128C789A" sourceRef="Gateway_1rveezl" targetRef="EndProcessNoClean"></sequenceFlow>
     <sequenceFlow id="Flow_0pfg4dd" sourceRef="Activity_093c93r" targetRef="Event_1heoco6"></sequenceFlow>
     <endEvent id="Event_1heoco6"></endEvent>
-    <serviceTask id="Activity_093c93r" name="Envoyer un message d'erreur" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-    <serviceTask id="CleanPlatform" name="Nettoyer les plateformes de collecte" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-    <serviceTask id="DeleteAccount" name="Supprimer les comptes dans l'annuaire ????" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
-    <serviceTask id="UpdateContextServiceTask" name="Mise à jour contexte dans plateforme de collecte web" flowable:delegateExpression="${SampleServiceTask}">
+    <serviceTask id="Activity_093c93r" name="Envoyer un message d'erreur" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+    <serviceTask id="CleanPlatform" name="Nettoyer les plateformes de collecte" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+    <serviceTask id="DeleteAccount" name="Supprimer les comptes dans l'annuaire ????" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
+    <serviceTask id="UpdateContextServiceTask" name="Mise à jour contexte dans plateforme de collecte web" flowable:delegateExpression="${sampleServiceTask}">
       <documentation>Mise à jour contexte dans plateforme</documentation>
     </serviceTask>
     <sequenceFlow id="sid-68E6FAA4-1F60-47FC-88DA-AEB444EB5219" sourceRef="Gateway_16p04je" targetRef="EditContext"></sequenceFlow>
     <subProcess id="SubRecupEch" name="RécupEchantillon">
       <startEvent id="sid-842CE03E-EF4E-4BD5-BBEF-F2731AA1DCA0" flowable:formFieldValidation="true"></startEvent>
-      <serviceTask id="sid-6AA91BC1-E3A1-4DA8-A530-92912D2185C7" name="Récupérer échantillon (source externe)" flowable:delegateExpression="${SampleServiceTask}"></serviceTask>
+      <serviceTask id="sid-6AA91BC1-E3A1-4DA8-A530-92912D2185C7" name="Récupérer échantillon (source externe)" flowable:delegateExpression="${sampleServiceTask}"></serviceTask>
       <endEvent id="sid-47610427-758F-4C78-8075-43D9BF84981A"></endEvent>
       <sequenceFlow id="sid-2A2973E3-2306-4AB4-A3CF-BB176FEA6A7C" sourceRef="sid-842CE03E-EF4E-4BD5-BBEF-F2731AA1DCA0" targetRef="sid-6AA91BC1-E3A1-4DA8-A530-92912D2185C7"></sequenceFlow>
       <sequenceFlow id="sid-34CFE97E-8C0E-44E3-BF7D-8C9465E597D7" sourceRef="sid-6AA91BC1-E3A1-4DA8-A530-92912D2185C7" targetRef="sid-47610427-758F-4C78-8075-43D9BF84981A"></sequenceFlow>
