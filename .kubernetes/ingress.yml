@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: protools-flowable
+  name: protools-flowable-demo
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
