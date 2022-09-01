@@ -2,7 +2,7 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
   <message id="proceedPOC" name="messageToProceedPOCFamille"/>
   <process id="EnqueteWeb2" name="Enquête web continue 2" isExecutable="true">
-    <documentation>Enquête web source échantillon externe avec message</documentation>
+    <documentation>Enquête web source échantillon externe avec message (base Qualité Volaille)</documentation>
     <startEvent id="Event_07ga0xu" flowable:formFieldValidation="true"></startEvent>
     <subProcess id="SubProcessAddToSurvey" name="SubProcess Add to Survey">
       <documentation>SubProcess Add to Survey</documentation>
@@ -13,7 +13,7 @@
       <serviceTask id="Activity_00rnxz8" name="créer l'ue dans l'annuaire" flowable:delegateExpression="${createAccount}"></serviceTask>
       <serviceTask id="Activity_10dp9h6" name="créer l'ue dans la plateforme de collecte web" flowable:delegateExpression="${addToSurvey}"></serviceTask>
       <intermediateCatchEvent id="TimerCheckParralelism" name="Blocage Temps //">
-        <documentation>Permet de stopper le process pour voir si l'exec paralelle s'est bien déroulée</documentation>
+        <documentation>Permet de stopper le process pour voir si l'execution concurrente s'est bien déroulée</documentation>
         <timerEventDefinition>
           <timeDuration>PT120S</timeDuration>
         </timerEventDefinition>
