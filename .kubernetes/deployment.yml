@@ -13,7 +13,7 @@ spec:
         app: protools-flowable-demo
     spec:
       containers:
-        - name: protools-flowable-demo
+        - name: protools-flowable
           image: mailinenguyen/protools-flowable:protools-demo
           env:
             - name: SPRING_DATASOURCE_PASSWORD
