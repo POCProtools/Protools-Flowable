@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.protools</groupId>
 	<artifactId>flowableDemo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>flowablePOC</name>
 	<description>POC Protools using Flowable - Demo version</description>
 	<properties>
