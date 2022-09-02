@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.protools</groupId>
-	<artifactId>flowablePOC</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>flowableDemo</artifactId>
+	<version>0.0.2</version>
 	<name>flowablePOC</name>
-	<description>POC Protools using Flowable</description>
+	<description>POC Protools using Flowable - Demo version</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: protools-flowable
+  name: protools-flowable-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: protools-flowable
+      app: protools-flowable-demo
   template:
     metadata:
       labels:
-        app: protools-flowable
+        app: protools-flowable-demo
     spec:
       containers:
         - name: protools-flowable
@@ -19,9 +19,9 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: protools-flowable-postgresql
+                  name: protools-flowable-demo-postgresql
                   key: postgres-password
             - name: SPRING_DATASOURCE_USERNAME
               value: postgres
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://protools-flowable-postgresql/
+              value: jdbc:postgresql://protools-flowable-demo-postgresql/

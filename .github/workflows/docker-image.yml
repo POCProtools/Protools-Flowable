@@ -2,13 +2,11 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ protools-wip ]
+    branches: [protools-wip]
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
