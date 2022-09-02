@@ -20,7 +20,7 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: protools-flowable-demo-postgresql
+                  name: protools-flowable-postgresql
                   key: postgres-password
             - name: SPRING_DATASOURCE_USERNAME
               value: postgres

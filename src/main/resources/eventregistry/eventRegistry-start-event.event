@@ -1,0 +1,11 @@
+{
+    "key": "startEventKey",
+    "name": "Start event",
+    "correlationParameters": [],
+    "payload": [
+        {
+            "name": "id",
+            "type": "string"
+        }
+    ]
+}
