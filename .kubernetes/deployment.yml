@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: protools-flowable-demo
+  name: protools-flowable
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: protools-flowable-demo
+      app: protools-flowable
   template:
     metadata:
       labels:
-        app: protools-flowable-demo
+        app: protools-flowable
     spec:
       containers:
         - name: protools-flowable
           image: mailinenguyen/protools-flowable:wip
+          imagePullPolicy: Always
           env:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:

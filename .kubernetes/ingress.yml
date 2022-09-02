@@ -1,21 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: protools-flowable-demo
+  name: protools-flowable
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   tls:
     - hosts:
-        - protools-flowable-demo.dev.insee.io
+        - protools-flowable.dev.insee.io
   rules:
-    - host: protools-flowable-demo.dev.insee.io
+    - host: protools-flowable.dev.insee.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: protools-flowable-demo
+                name: protools-flowable
                 port:
                   number: 8080

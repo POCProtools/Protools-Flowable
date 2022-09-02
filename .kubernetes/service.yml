@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: protools-flowable-demo
+  name: protools-flowable
 spec:
   ports:
     - name: http
       targetPort: 8080
       port: 8080
   selector:
-    app: protools-flowable-demo
+    app: protools-flowable
