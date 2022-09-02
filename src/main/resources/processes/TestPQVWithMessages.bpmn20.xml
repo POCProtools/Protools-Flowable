@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
-  <message id="proceedPOC" name="messageToProceedPOCFamille"/>
+
   <process id="EnqueteWeb2" name="Enquête web continue 2" isExecutable="true">
     <documentation>Enquête web source échantillon externe avec message (base Qualité Volaille)</documentation>
     <startEvent id="Event_07ga0xu" flowable:formFieldValidation="true"></startEvent>
@@ -80,7 +80,11 @@
     <sequenceFlow id="sid-78852250-63B8-4149-AD77-204EEC9843F0" sourceRef="RecupEch" targetRef="ReceiveMessageStartProcess"></sequenceFlow>
     <intermediateCatchEvent id="ReceiveMessageStartProcess" name="Réception message">
       <documentation>Réception d'un message pour avancer dans le processus</documentation>
-      <messageEventDefinition id="messageToProceedPOCFamille" messageRef="proceedPOC"/>
+      <extensionElements>
+        <flowable:eventType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[startEventKey]]></flowable:eventType>
+        <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn" source="id" sourceType="string" target="id"></flowable:eventOutParameter>
+        <flowable:channelType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[rabbitmq]]></flowable:channelType>
+      </extensionElements>
     </intermediateCatchEvent>
     <sequenceFlow id="sid-33B92BA0-B1EC-4D7C-9D88-7A06A3298480" sourceRef="ReceiveMessageStartProcess" targetRef="SubProcessAddToSurvey"></sequenceFlow>
     <textAnnotation id="TextAnnotation_1da9efo">
