@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: protools-flowable
+  name: protools-flowable-wip
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: protools-flowable
+      app: protools-flowable-wip
   template:
     metadata:
       labels:
-        app: protools-flowable
+        app: protools-flowable-wip
     spec:
       containers:
-        - name: protools-flowable
+        - name: protools-flowable-wip
           image: mailinenguyen/protools-flowable:wip
           imagePullPolicy: Always
           env:
