@@ -29,7 +29,7 @@ spec:
             - name: RABBITMQ_HOST
               value: "rabbitmq-poc-pqv"
             - name: RABBITMQ_PORT
-              value: "5672"
+              value: "15672"
             - name: RABBITMQ_VIRTUEL_HOST
               value: "/"
             - name: RABBITMQ_USERNAME
