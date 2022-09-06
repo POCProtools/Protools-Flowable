@@ -134,7 +134,7 @@
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_EnqueteWebContinue">
     <bpmndi:BPMNPlane bpmnElement="EnqueteWebContinue" id="BPMNPlane_EnqueteWebContinue">
-      <bpmndi:BPMNShape bpmnElement="TraitementIndivUE" id="BPMNShape_TraitementIndivUE">
+      <bpmndi:BPMNShape bpmnElement="TraitementIndivUE" id="BPMNShape_TraitementIndivUE" isExpanded="true">
         <omgdc:Bounds height="344.0" width="1089.0" x="1020.0" y="195.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="Event_09cuuu7" id="BPMNShape_Event_09cuuu7">
@@ -209,7 +209,7 @@
       <bpmndi:BPMNShape bpmnElement="UpdateContextServiceTask" id="BPMNShape_UpdateContextServiceTask">
         <omgdc:Bounds height="80.0" width="100.0" x="1370.0" y="640.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="SubRecupEch" id="BPMNShape_SubRecupEch">
+      <bpmndi:BPMNShape bpmnElement="SubRecupEch" id="BPMNShape_SubRecupEch" isExpanded="true">
         <omgdc:Bounds height="185.0" width="288.0" x="690.0" y="307.5"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-842CE03E-EF4E-4BD5-BBEF-F2731AA1DCA0" id="BPMNShape_sid-842CE03E-EF4E-4BD5-BBEF-F2731AA1DCA0">
