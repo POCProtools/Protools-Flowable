@@ -1,11 +1,13 @@
 {
       "type": "rabbit",
+      "category": "channel",
       "channelType": "inbound",
       "deserializerType": "json",
       "description": "Start event channel",
       "queues": ["start-event"],
+      "deserializerType": "json",
       "channelEventKeyDetection": {
-        "fixedValue": "startEventKey"
+        "jsonField": "startEventKeyValue"
       },
       "name": "Start event",
       "key": "startEventInboundChannel"

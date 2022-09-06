@@ -1,10 +1,22 @@
 {
-    "key": "startEventKey",
+    "key": "startEvent",
     "name": "Start event",
-    "correlationParameters": [],
+    "correlationParameters": [
+      {
+        "name": "nameObject",
+        "type": "string"
+      }
+    ]],
+    "inboundChannelKeys": [
+        "start-event-channel"
+      ],
     "payload": [
         {
-            "name": "id",
+            "name": "nameObject",
+            "type": "string"
+        },
+        {
+            "name": "type",
             "type": "string"
         }
     ]

@@ -33,9 +33,23 @@ spec:
             - name: RABBITMQ_VIRTUEL_HOST
               value: "/"
             - name: RABBITMQ_USERNAME
-              value: "userTest"
+              value: "user"
             - name: RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: rabbitmq-poc-pqv
                   key: rabbitmq-password
+            - name: RABBITMQ_LISTENER_SIMPLE_ACKNOWLEDGE
+              value: "true"
+            - name: RABBITMQ_LISTENER_SIMPLE_CONCURRENCY
+              value: "1"
+            - name: RABBITMQ_LISTENER_SIMPLE_PREFETCH
+              value: "1"
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_ENABLED
+              value: "false"
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_ATTEMPTS
+              value: "3"
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_INTERVAL
+              value: "10000"
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MULTIPLIER
+              value: "2"
