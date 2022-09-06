@@ -26,15 +26,15 @@ spec:
               value: postgres
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://protools-flowable-postgresql/
-            - name: RABBITMQ_HOST
+            - name: SPRING_RABBITMQ_HOST
               value: "rabbitmq-poc-pqv"
-            - name: RABBITMQ_PORT
+            - name: SPRING_RABBITMQ_PORT
               value: "15672"
-            - name: RABBITMQ_VIRTUEL_HOST
+            - name: SPRING_RABBITMQ_VIRTUEL_HOST
               value: "/"
-            - name: RABBITMQ_USERNAME
+            - name: SPRING_RABBITMQ_USERNAME
               value: "user"
-            - name: RABBITMQ_PASSWORD
+            - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: rabbitmq-poc-pqv
