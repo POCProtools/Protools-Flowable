@@ -82,7 +82,14 @@
       <documentation>Réception d'un message pour avancer dans le processus</documentation>
       <extensionElements>
         <flowable:eventType xmlns:flowable="http://flowable.org/bpmn">startEvent</flowable:eventType>
-        <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn" source="id" sourceType="string" target="id"></flowable:eventOutParameter>
+        <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn"
+                                    source="nameObject"
+                                    sourceType="string"
+                                    target="nameObject"/>
+        <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn"
+                                    source="type"
+                                    sourceType="string"
+                                    target="type"/>
         <flowable:channelType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[rabbitmq]]></flowable:channelType>
       </extensionElements>
     </intermediateCatchEvent>
