@@ -1,4 +1,6 @@
 {
+      "name": "Start event",
+      "key": "startEventInboundChannel",
       "type": "rabbit",
       "category": "channel",
       "channelType": "inbound",
@@ -9,6 +11,5 @@
       "channelEventKeyDetection": {
         "jsonField": "startEventKeyValue"
       },
-      "name": "Start event",
-      "key": "startEventInboundChannel"
+
 }
