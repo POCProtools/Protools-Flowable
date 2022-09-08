@@ -29,7 +29,7 @@ public class CreateAccount implements JavaDelegate {
         String unit = (String) delegateExecution.getVariable("unit");
         String surveyID = (String) delegateExecution.getVariable("idSurvey") ;
         int count = (int) delegateExecution.getVariable("count");
-        logger.info("\t >>> Create Account for unit: " + unit + " for survey: "+ surveyID);
+
 
         Gson gson = new Gson();
         Person[] map = gson.fromJson(unit,Person[].class);
@@ -40,7 +40,6 @@ public class CreateAccount implements JavaDelegate {
             put("email", person.getEmail());
             put("nom", person.getNom());
             put("prenom", person.getPrenom());
-            put("telephone", person.getTelephone());
             put("id_survey",Long.parseLong(surveyID));
         }};
         var objectMapper = new ObjectMapper();
@@ -52,6 +51,7 @@ public class CreateAccount implements JavaDelegate {
             e.printStackTrace();
         }
         requestBody = "[" + requestBody + "]";
+        logger.info("\t >>> Create Account for unit: " + requestBody + " for survey: "+ surveyID);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://annuaire.dev.insee.io/comptes/"+surveyID))
                 .setHeader(HttpHeaders.CONTENT_TYPE, "application/json")
