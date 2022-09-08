@@ -97,7 +97,7 @@ public class getSampleFamille implements JavaDelegate {
                 put("email", person.getEmail());
                 put("nom", person.getNom());
                 put("prenom", person.getPrenom());
-                put("telephone", person.getTelephone());
+
                 put("id_survey",Long.parseLong(idSurvey));
             }};
             ArrayList<Object> tmp= new ArrayList<Object>();
