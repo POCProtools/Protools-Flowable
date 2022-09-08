@@ -42,7 +42,7 @@ public class AddToSurvey implements JavaDelegate {
             put("email", person.getEmail());
             put("nom", person.getNom());
             put("prenom", person.getPrenom());
-            put("telephone", person.getTelephone());
+
             put("id_survey",Long.parseLong(surveyID));
         }};
         var objectMapper = new ObjectMapper();
