@@ -81,7 +81,7 @@
     <intermediateCatchEvent id="ReceiveMessageStartProcess" name="Réception message">
       <documentation>Réception d'un message pour avancer dans le processus</documentation>
       <extensionElements>
-        <flowable:eventType xmlns:flowable="http://flowable.org/bpmn">startEvent</flowable:eventType>
+        <flowable:eventType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[startIntermediateEvent]]></flowable:eventType>
         <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn"
                                     source="nameObject"
                                     sourceType="string"
@@ -90,7 +90,7 @@
                                     source="type"
                                     sourceType="string"
                                     target="type"/>
-        <flowable:channelType xmlns:flowable="http://flowable.org/bpmn">rabbitmq</flowable:channelType>
+        <flowable:channelType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[rabbitmq]]></flowable:channelType>
       </extensionElements>
     </intermediateCatchEvent>
     <textAnnotation id="TextAnnotation_1da9efo">

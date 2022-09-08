@@ -1,6 +1,6 @@
 {
-    "key": "startEvent",
-    "name": "Start event",
+    "key": "startIntermediateEvent",
+    "name": "Start event to proceed to the subprocess",
     "correlationParameters": [
       {
         "name": "nameObject",
