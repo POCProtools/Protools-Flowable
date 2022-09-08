@@ -79,7 +79,7 @@
       <bpmndi:BPMNShape bpmnElement="CheckSurveyInfo" id="BPMNShape_CheckSurveyInfo">
         <omgdc:Bounds height="80.0" width="100.0" x="285.0" y="147.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="Activity_0xukvyb" id="BPMNShape_Activity_0xukvyb">
+      <bpmndi:BPMNShape bpmnElement="Activity_0xukvyb" id="BPMNShape_Activity_0xukvyb" isExpanded="true">
         <omgdc:Bounds height="302.0" width="566.0" x="810.0" y="90.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="Event_0g6ye5t" id="BPMNShape_Event_0g6ye5t">
