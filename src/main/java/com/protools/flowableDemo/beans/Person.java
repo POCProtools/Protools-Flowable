@@ -9,6 +9,7 @@ public class Person {
     private String nom;
     private String prenom;
     private String email;
+
     private Long idSurvey;
     public Person() {
 
@@ -57,12 +58,13 @@ public class Person {
     }
 
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return nom.equals(person.nom) && prenom.equals(person.prenom) && email.equals(person.email);
+        return nom.equals(person.nom) && prenom.equals(person.prenom) && email.equals(person.email) ;
     }
 
     @Override
@@ -76,6 +78,7 @@ public class Person {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
+
                 '}';
     }
 
