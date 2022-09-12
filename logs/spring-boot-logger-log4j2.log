@@ -298,3 +298,541 @@
 2022-09-12 08:00:35,648 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(2)-127.0.0.1] Initializing Spring DispatcherServlet 'Flowable BPMN Rest API'
 2022-09-12 08:00:35,648 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Initializing Servlet 'Flowable BPMN Rest API'
 2022-09-12 08:00:35,787 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Completed initialization in 139 ms
+2022-09-12 08:04:22,221 INFO c.p.f.c.ProcessController [http-nio-8080-exec-1] > Start the process: EnqueteWeb2
+2022-09-12 08:04:22,251 INFO c.p.f.s.WorkflowService [http-nio-8080-exec-1] Process Instance ID : bf12e854-3260-11ed-9cfb-7a7556d5ce00
+2022-09-12 08:04:22,251 INFO c.p.f.s.WorkflowService [http-nio-8080-exec-1] Added businessKey to the process :PQV
+2022-09-12 08:04:22,252 INFO c.p.f.c.ProcessController [http-nio-8080-exec-1] {"businessKey":"PQV","processKey":"EnqueteWeb2","startTime":"Mon Sep 12 08:04:22 CEST 2022","id":"bf12e854-3260-11ed-9cfb-7a7556d5ce00"}
+2022-09-12 08:05:55,810 INFO o.f.j.s.i.a.AbstractAsyncExecutor [SpringApplicationShutdownHook] Shutting down the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor] for engine cmmn
+2022-09-12 08:05:55,811 INFO o.f.j.s.i.a.ResetExpiredJobsRunnable [flowable-cmmn-reset-expired-jobs] stopped resetting expired jobs for engine cmmn
+2022-09-12 08:05:55,811 INFO o.f.j.s.i.a.AcquireTimerJobsRunnable [flowable-cmmn-acquire-timer-jobs] stopped async job due acquisition for engine cmmn
+2022-09-12 08:05:55,811 INFO o.f.j.s.i.a.AcquireAsyncJobsDueRunnable [flowable-cmmn-acquire-async-jobs] stopped async job due acquisition for engine cmmn
+2022-09-12 08:05:55,814 ERROR o.f.c.e.i.i.CommandContext [SpringApplicationShutdownHook] Error while closing command context
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:271) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:234) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectList(DbSqlSession.java:158) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.data.impl.MybatisJobDataManager.findJobsByQueryCriteria(MybatisJobDataManager.java:119) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.JobEntityManagerImpl.findJobsByQueryCriteria(JobEntityManagerImpl.java:72) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:54) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:25) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.lambda$execute$0(CmmnCommandInvoker.java:57) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.executeOperation(CmmnCommandInvoker.java:100) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.executeOperations(CmmnCommandInvoker.java:73) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.execute(CmmnCommandInvoker.java:59) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:105) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.unlockOwnedJobs(AbstractAsyncExecutor.java:88) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor.shutdownAdditionalComponents(DefaultAsyncJobExecutor.java:133) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.shutdown(AbstractAsyncExecutor.java:168) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.CmmnEngineImpl.close(CmmnEngineImpl.java:120) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:319) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.7.jar:2.6.7]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy$TransactionAwareInvocationHandler.invoke(TransactionAwareDataSourceProxy.java:238) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at jdk.proxy2.$Proxy106.prepareStatement(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 44 more
+2022-09-12 08:05:55,822 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Custom destroy method 'close' on bean with name 'cmmnEngine' threw an exception: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+2022-09-12 08:05:55,822 INFO o.f.j.s.i.a.AbstractAsyncExecutor [SpringApplicationShutdownHook] Shutting down the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor] for engine bpmn
+2022-09-12 08:05:55,822 INFO o.f.j.s.i.a.AcquireAsyncJobsDueRunnable [flowable-bpmn-acquire-async-jobs] stopped async job due acquisition for engine bpmn
+2022-09-12 08:05:55,822 INFO o.f.j.s.i.a.AcquireTimerJobsRunnable [flowable-bpmn-acquire-timer-jobs] stopped async job due acquisition for engine bpmn
+2022-09-12 08:05:55,823 INFO o.f.j.s.i.a.ResetExpiredJobsRunnable [flowable-bpmn-reset-expired-jobs] stopped resetting expired jobs for engine bpmn
+2022-09-12 08:05:55,823 ERROR o.f.c.e.i.i.CommandContext [SpringApplicationShutdownHook] Error while closing command context
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:271) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:234) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectList(DbSqlSession.java:158) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.data.impl.MybatisJobDataManager.findJobsByQueryCriteria(MybatisJobDataManager.java:119) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.JobEntityManagerImpl.findJobsByQueryCriteria(JobEntityManagerImpl.java:72) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:54) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:25) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker$1.run(CommandInvoker.java:67) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:140) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:114) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:72) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:105) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.unlockOwnedJobs(AbstractAsyncExecutor.java:88) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor.shutdownAdditionalComponents(DefaultAsyncJobExecutor.java:133) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.shutdown(AbstractAsyncExecutor.java:168) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.ProcessEngineImpl.close(ProcessEngineImpl.java:127) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:319) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.7.jar:2.6.7]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy$TransactionAwareInvocationHandler.invoke(TransactionAwareDataSourceProxy.java:238) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at jdk.proxy2.$Proxy106.prepareStatement(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 45 more
+2022-09-12 08:05:55,824 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Custom destroy method 'close' on bean with name 'processEngine' threw an exception: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+2022-09-12 08:05:55,824 INFO o.f.j.s.i.a.AbstractAsyncExecutor [SpringApplicationShutdownHook] Shutting down the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor] for engine cmmn
+2022-09-12 08:05:55,825 ERROR o.f.c.e.i.i.CommandContext [SpringApplicationShutdownHook] Error while closing command context
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:271) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:234) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectList(DbSqlSession.java:158) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.data.impl.MybatisJobDataManager.findJobsByQueryCriteria(MybatisJobDataManager.java:119) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.JobEntityManagerImpl.findJobsByQueryCriteria(JobEntityManagerImpl.java:72) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:54) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:25) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.lambda$execute$0(CmmnCommandInvoker.java:57) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.executeOperation(CmmnCommandInvoker.java:100) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.executeOperations(CmmnCommandInvoker.java:73) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.cmmn.engine.impl.interceptor.CmmnCommandInvoker.execute(CmmnCommandInvoker.java:59) ~[flowable-cmmn-engine-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:105) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.unlockOwnedJobs(AbstractAsyncExecutor.java:88) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor.shutdownAdditionalComponents(DefaultAsyncJobExecutor.java:133) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.shutdown(AbstractAsyncExecutor.java:168) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:319) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.7.jar:2.6.7]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy$TransactionAwareInvocationHandler.invoke(TransactionAwareDataSourceProxy.java:238) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at jdk.proxy2.$Proxy106.prepareStatement(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 43 more
+2022-09-12 08:05:55,825 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Custom destroy method 'shutdown' on bean with name 'cmmnAsyncExecutor' threw an exception: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+2022-09-12 08:05:55,826 INFO o.f.j.s.i.a.AbstractAsyncExecutor [SpringApplicationShutdownHook] Shutting down the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor] for engine bpmn
+2022-09-12 08:05:55,826 ERROR o.f.c.e.i.i.CommandContext [SpringApplicationShutdownHook] Error while closing command context
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:271) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectListWithRawParameter(DbSqlSession.java:234) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.db.DbSqlSession.selectList(DbSqlSession.java:158) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.data.impl.MybatisJobDataManager.findJobsByQueryCriteria(MybatisJobDataManager.java:119) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.persistence.entity.JobEntityManagerImpl.findJobsByQueryCriteria(JobEntityManagerImpl.java:72) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:54) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.cmd.UnacquireOwnedJobsCmd.execute(UnacquireOwnedJobsCmd.java:25) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker$1.run(CommandInvoker.java:67) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:140) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:114) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:72) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:105) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) ~[flowable-engine-common-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.unlockOwnedJobs(AbstractAsyncExecutor.java:88) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor.shutdownAdditionalComponents(DefaultAsyncJobExecutor.java:133) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor.shutdown(AbstractAsyncExecutor.java:168) ~[flowable-job-service-6.7.2.jar:6.7.2]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:319) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.7.jar:2.6.7]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.19.jar:5.3.19]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-2.6.7.jar:2.6.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy$TransactionAwareInvocationHandler.invoke(TransactionAwareDataSourceProxy.java:238) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at jdk.proxy2.$Proxy106.prepareStatement(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 44 more
+2022-09-12 08:05:55,827 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Custom destroy method 'shutdown' on bean with name 'processAsyncExecutor' threw an exception: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+### The error may exist in org/flowable/job/service/db/mapping/entity/Job.xml
+### The error may involve org.flowable.job.service.impl.persistence.entity.JobEntityImpl.selectJobByQueryCriteria
+### The error occurred while executing a query
+### SQL: SELECT RES.*                     from ACT_RU_JOB RES          WHERE  RES.LOCK_OWNER_ = ?                order by RES.ID_ asc
+### Cause: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACT_RU_JOB" not found; SQL statement:
+SELECT RES.*  
+         
+        from ACT_RU_JOB RES
+         WHERE  RES.LOCK_OWNER_ = ? 
+     
+        order by RES.ID_ asc [42102-200]
+2022-09-12 08:05:55,827 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-12 08:05:55,827 INFO o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl [SpringApplicationShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-09-12 08:05:55,828 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-09-12 08:05:55,829 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

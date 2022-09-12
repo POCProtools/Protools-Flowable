@@ -12,5 +12,17 @@
         <property name="databaseSchemaUpdate" value="true" />
 
     </bean>
+    <!--
+    <bean id="processEngineConfiguration" class="org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <property name="databaseType" value="postgres" />
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/flowable" />
+        <property name="jdbcDriver" value="org.postgresql.Driver" />
+        <property name="jdbcUsername" value="postgres" />
+        <property name="jdbcPassword" value="postgres" />
+        <property name="databaseSchemaUpdate" value="true" />
+
+    </bean>
+
+    -->
 
 </beans>
